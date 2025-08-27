@@ -9,22 +9,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'home',
+      selectedTab: 'shipping-requests',
     };
   }
   renderShippingRequests() {
-    return (<Board />);
+    return <Board />;
   }
 
   renderNavigation() {
-    return (<Navigation
-      onClick={(tabName) => this.changeTab(tabName)}
-      selectedTab={this.state.selectedTab}
-      />);
+    return (
+      <Navigation
+        onClick={(tabName) => this.changeTab(tabName)}
+        selectedTab={this.state.selectedTab}
+      />
+    );
   }
 
   renderTabContent() {
-    switch(this.state.selectedTab) {
+    switch (this.state.selectedTab) {
       case 'home':
       default:
         return HomeTab();
@@ -34,12 +36,10 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         {this.renderNavigation()}
 
-        <div className="App-body">
-          {this.renderTabContent()}
-        </div>
+        <div className='App-body'>{this.renderTabContent()}</div>
       </div>
     );
   }
